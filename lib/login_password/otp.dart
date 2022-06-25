@@ -12,12 +12,11 @@ import '../home/bottom.dart';
 class Otp extends StatefulWidget {
   const Otp({Key? key}) : super(key: key);
 
-  @override 
+  @override
   State<Otp> createState() => _OtpState();
 }
 
 class _OtpState extends State<Otp> {
-
   late ColorNotifire notifire;
 
   getdarkmodepreviousstate() async {
@@ -40,105 +39,124 @@ class _OtpState extends State<Otp> {
   Widget build(BuildContext context) {
     notifire = Provider.of<ColorNotifire>(context, listen: true);
     return Scaffold(
-      backgroundColor: notifire.getprimerycolor,
-      body:SingleChildScrollView(
-        child:Column(
-          children: [
-            SizedBox(height: height / 20,),
-            Row(
-              children: [
-                SizedBox(width: width / 20,),
-                GestureDetector(
-                  onTap: () {
-                    Navigator.pop(context);
-                  },
-                  child: Container(
-                    decoration: BoxDecoration(
-                      borderRadius: const BorderRadius.all(
-                        Radius.circular(10),
-                      ),
-                      border:
-                      Border.all(color: const Color(0xfff1f5f6), width: 2),
-                      color: Colors.transparent,
-                    ),
-                    height: height / 19,
-                    width: width / 8,
-                    child: Center(
-                      child: Icon(
-                        Icons.arrow_back_ios_outlined,
-                        color: notifire.getdarkscolor,
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            Image.asset("image/otps.png",height: height / 4,),
-            SizedBox(height: height / 30,),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: width / 15),
-              child: Row(
+        backgroundColor: notifire.getprimerycolor,
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              SizedBox(
+                height: height / 20,
+              ),
+              Row(
                 children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        CustomStrings.otp,
-                        style: TextStyle(
-                            fontFamily: 'Gilroy Bold',
-                            color: notifire.getdarkscolor,
-                            fontSize: height / 25),
+                  SizedBox(
+                    width: width / 20,
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: const BorderRadius.all(
+                          Radius.circular(10),
+                        ),
+                        border: Border.all(
+                            color: const Color(0xfff1f5f6), width: 2),
+                        color: Colors.transparent,
                       ),
-                      SizedBox(height: height / 50,),
-                      Text(
-                        CustomStrings.codes,
-                        style: TextStyle(
-                            fontFamily: 'Gilroy Medium',
-                            color: notifire.gettextcolor,
-                            fontSize: height / 50),
+                      height: height / 19,
+                      width: width / 8,
+                      child: Center(
+                        child: Icon(
+                          Icons.arrow_back_ios_outlined,
+                          color: notifire.getdarkscolor,
+                        ),
                       ),
-                      SizedBox(height: height / 100,),
-                      Text(
-                        "+91 9083990020",
-                        style: TextStyle(
-                            fontFamily: 'Gilroy Medium',
-                            color: notifire.gettextcolor,
-                            fontSize: height / 55),
-                      ),
-                      SizedBox(height: height / 20,),
-
-
-                    ],
+                    ),
                   ),
                 ],
               ),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                otpfild(),
-                otpfild(),
-                otpfild(),
-                otpfild(),
-              ],
-            ),
-            SizedBox(height: height / 3.3,),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: width / 15),
-              child: GestureDetector(
-                onTap: (){
-                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context){
-                    return const Bottom();
-                  },),);
-                },
-                child: Custombutton.button(
-                    notifire.getprocolor, CustomStrings.confirm, width),
+              Image.asset(
+                "image/otps.png",
+                height: height / 4,
               ),
-            ),
-          ],
-        ),
-      )
-    );
+              SizedBox(
+                height: height / 30,
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: width / 15),
+                child: Row(
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          CustomStrings.otp,
+                          style: TextStyle(
+                              fontFamily: 'Gilroy Bold',
+                              color: notifire.getdarkscolor,
+                              fontSize: height / 25),
+                        ),
+                        SizedBox(
+                          height: height / 50,
+                        ),
+                        Text(
+                          CustomStrings.codes,
+                          style: TextStyle(
+                              fontFamily: 'Gilroy Medium',
+                              color: notifire.gettextcolor,
+                              fontSize: height / 50),
+                        ),
+                        SizedBox(
+                          height: height / 100,
+                        ),
+                        Text(
+                          "+91 9083990020",
+                          style: TextStyle(
+                              fontFamily: 'Gilroy Medium',
+                              color: notifire.gettextcolor,
+                              fontSize: height / 55),
+                        ),
+                        SizedBox(
+                          height: height / 20,
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  otpfild(),
+                  otpfild(),
+                  otpfild(),
+                  otpfild(),
+                ],
+              ),
+              SizedBox(
+                height: height / 3.3,
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: width / 15),
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return const HomePage();
+                        },
+                      ),
+                    );
+                  },
+                  child: Custombutton.button(
+                      notifire.getprocolor, CustomStrings.confirm, width),
+                ),
+              ),
+            ],
+          ),
+        ));
   }
 
   Widget otpfild() {
@@ -146,7 +164,7 @@ class _OtpState extends State<Otp> {
       height: height / 15,
       width: width / 8,
       decoration: const BoxDecoration(
-       color: Color(0xfff1f5f6),
+        color: Color(0xfff1f5f6),
         borderRadius: BorderRadius.all(
           Radius.circular(10),
         ),

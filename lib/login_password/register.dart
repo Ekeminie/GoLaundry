@@ -21,7 +21,6 @@ class Register extends StatefulWidget {
 class _RegisterState extends State<Register> {
   late ColorNotifire notifire;
 
-
   getdarkmodepreviousstate() async {
     final prefs = await SharedPreferences.getInstance();
     bool? previusstate = prefs.getBool("setIsDark");
@@ -46,7 +45,9 @@ class _RegisterState extends State<Register> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-           SizedBox(height: height / 20,),
+            SizedBox(
+              height: height / 20,
+            ),
             Row(
               children: [
                 SizedBox(
@@ -67,8 +68,7 @@ class _RegisterState extends State<Register> {
                             Radius.circular(10),
                           ),
                           border: Border.all(
-                              color: const Color(0xfff1f5f6),
-                              width: 2),
+                              color: const Color(0xfff1f5f6), width: 2),
                           color: Colors.transparent,
                         ),
                         height: height / 19,
@@ -85,7 +85,10 @@ class _RegisterState extends State<Register> {
                 ),
               ],
             ),
-            Image.asset("image/login.png",height: height / 4,),
+            Image.asset(
+              "image/login.png",
+              height: height / 4,
+            ),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: width / 15),
               child: Row(
@@ -100,42 +103,70 @@ class _RegisterState extends State<Register> {
                             color: notifire.getdarkscolor,
                             fontSize: height / 25),
                       ),
-
                     ],
                   ),
                 ],
               ),
             ),
-            SizedBox(height: height / 30,),
+            SizedBox(
+              height: height / 30,
+            ),
             Row(
               children: [
-                SizedBox(width: width / 20,),
-                const Icon(Icons.alternate_email,color: Colors.grey,),
-                SizedBox(width: width / 40,),
+                SizedBox(
+                  width: width / 20,
+                ),
+                const Icon(
+                  Icons.alternate_email,
+                  color: Colors.grey,
+                ),
+                SizedBox(
+                  width: width / 40,
+                ),
                 Customtextfild.textField(
                   "Email ID",
                   notifire.getwhitecolor,
                   width / 1.3,
                 ),
               ],
-            ),SizedBox(height: height / 30,),
+            ),
+            SizedBox(
+              height: height / 30,
+            ),
             Row(
               children: [
-                SizedBox(width: width / 20,),
-                const Icon(Icons.person_outline_sharp,color: Colors.grey,),
-                SizedBox(width: width / 40,),
+                SizedBox(
+                  width: width / 20,
+                ),
+                const Icon(
+                  Icons.person_outline_sharp,
+                  color: Colors.grey,
+                ),
+                SizedBox(
+                  width: width / 40,
+                ),
                 Customtextfild.textField(
                   "Full name",
                   notifire.getwhitecolor,
                   width / 1.3,
                 ),
               ],
-            ),SizedBox(height: height / 30,),
+            ),
+            SizedBox(
+              height: height / 30,
+            ),
             Row(
               children: [
-                SizedBox(width: width / 20,),
-                const Icon(Icons.phone,color: Colors.grey,),
-                SizedBox(width: width / 40,),
+                SizedBox(
+                  width: width / 20,
+                ),
+                const Icon(
+                  Icons.phone,
+                  color: Colors.grey,
+                ),
+                SizedBox(
+                  width: width / 40,
+                ),
                 Customtextfild.textField(
                   "Mobile",
                   notifire.getwhitecolor,
@@ -143,8 +174,9 @@ class _RegisterState extends State<Register> {
                 ),
               ],
             ),
-
-            SizedBox(height: height / 30,),
+            SizedBox(
+              height: height / 30,
+            ),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: width / 20),
               child: Row(
@@ -166,7 +198,9 @@ class _RegisterState extends State<Register> {
                 ],
               ),
             ),
-            SizedBox(height: height / 100,),
+            SizedBox(
+              height: height / 100,
+            ),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: width / 20),
               child: Row(
@@ -188,16 +222,23 @@ class _RegisterState extends State<Register> {
                 ],
               ),
             ),
-            SizedBox(height: height / 15,),
+            SizedBox(
+              height: height / 15,
+            ),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: width / 15),
               child: GestureDetector(
-                onTap: (){
-                  Get.to(const Bottom(),);
-                },
-                  child: Custombutton.button(notifire.getprocolor, CustomStrings.continues, width)),
+                  onTap: () {
+                    Get.to(
+                      const HomePage(),
+                    );
+                  },
+                  child: Custombutton.button(
+                      notifire.getprocolor, CustomStrings.continues, width)),
             ),
-            SizedBox(height: height / 30,),
+            SizedBox(
+              height: height / 30,
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -209,8 +250,10 @@ class _RegisterState extends State<Register> {
                       fontSize: height / 50),
                 ),
                 GestureDetector(
-                  onTap: (){
-                    Get.to(const Login(),);
+                  onTap: () {
+                    Get.to(
+                      const Login(),
+                    );
                   },
                   child: Container(
                     color: Colors.transparent,

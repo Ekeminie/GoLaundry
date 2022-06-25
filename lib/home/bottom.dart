@@ -10,14 +10,14 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../message/message.dart';
 import '../utils/colornotifire.dart';
 
-class Bottom extends StatefulWidget {
-  const Bottom({Key? key}) : super(key: key);
+class HomePage extends StatefulWidget {
+  const HomePage({Key? key}) : super(key: key);
 
   @override
-  State<Bottom> createState() => _BottomState();
+  State<HomePage> createState() => _HomePageState();
 }
 
-class _BottomState extends State<Bottom> {
+class _HomePageState extends State<HomePage> {
   late ColorNotifire notifire;
   bool selected = false;
 

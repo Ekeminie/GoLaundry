@@ -2,25 +2,26 @@ import 'package:anywash/utils/media.dart';
 import 'package:flutter/material.dart';
 
 class Customtextfild2 {
-  static Widget textField(name1,textcolor,se,txt) {
+  static Widget textField(name1, textcolor, se, txt,
+      {TextEditingController? controller, ValueNotifier<String>? onChanged}) {
     return Container(
-        color: Colors.transparent,
-        height: height / 20,
-        width: width / 1.3,
-        child: TextField(
-          obscureText: txt,
-          style: TextStyle(color: textcolor),
-          decoration: InputDecoration(
-            disabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10),
-            ), hintText: name1,
-            hintStyle: const TextStyle(color: Colors.grey),
-            suffixIcon: Padding(
-                padding: const EdgeInsets.all(10),
-                child: se
-            ),
+      color: Colors.transparent,
+      height: height / 20,
+      width: width / 1.3,
+      child: TextField(
+        obscureText: txt,
+        controller: controller,
+        onChanged: (t) => onChanged,
+        style: TextStyle(color: textcolor),
+        decoration: InputDecoration(
+          disabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(10),
           ),
+          hintText: name1,
+          hintStyle: const TextStyle(color: Colors.grey),
+          suffixIcon: Padding(padding: const EdgeInsets.all(10), child: se),
         ),
-      );
+      ),
+    );
   }
 }

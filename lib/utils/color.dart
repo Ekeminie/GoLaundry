@@ -45,4 +45,14 @@ Color darkpinkColor = const Color(0xff393948);
 Color darkColor = Colors.black;
 Color lightColor = Colors.white;
 
-
+Color kMainColor = Color(0xff067066);
+Color kDisabledColor = Color(0xff616161);
+Color kWhiteColor = Colors.white;
+Color kLightTextColor = Colors.grey;
+Color kCardBackgroundColor = Color(0xfff8f9fd);
+Color kTransparentColor = Colors.transparent;
+Color kMainTextColor = Colors.black;
+Color kIconColor = Color(0xffc4c8c1);
+Color kHintColor = Color(0xff999e93);
+Color kTextColor = Color(0xff6a6c74);
+Color unselectedLabelColor = Color(0xff515565);

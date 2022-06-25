@@ -27,11 +27,12 @@ class _ResetState extends State<Reset> {
       _obscureText = !_obscureText;
     });
   }
+
   bool obscureText = true;
 
   void toggle() {
     setState(() {
-      obscureText = ! obscureText;
+      obscureText = !obscureText;
     });
   }
 
@@ -76,9 +77,8 @@ class _ResetState extends State<Reset> {
                       borderRadius: const BorderRadius.all(
                         Radius.circular(10),
                       ),
-                      border: Border.all(
-                          color: const Color(0xfff1f5f6),
-                          width: 2),
+                      border:
+                          Border.all(color: const Color(0xfff1f5f6), width: 2),
                       color: Colors.transparent,
                     ),
                     height: height / 19,
@@ -145,9 +145,9 @@ class _ResetState extends State<Reset> {
                         child: _obscureText
                             ? const Icon(Icons.remove_red_eye_rounded)
                             : const Icon(
-                          Icons.remove_red_eye_outlined,
-                          color: Colors.grey,
-                        )),
+                                Icons.remove_red_eye_outlined,
+                                color: Colors.grey,
+                              )),
                     _obscureText,
                   ),
                 ),
@@ -176,15 +176,16 @@ class _ResetState extends State<Reset> {
                     "Password",
                     notifire.getwhitecolor,
                     GestureDetector(
-                        onTap: () {
-                          toggle();
-                        },
-                        child: obscureText
-                            ? const Icon(Icons.remove_red_eye_rounded)
-                            : const Icon(
-                          Icons.remove_red_eye_outlined,
-                          color: Colors.grey,
-                        ),),
+                      onTap: () {
+                        toggle();
+                      },
+                      child: obscureText
+                          ? const Icon(Icons.remove_red_eye_rounded)
+                          : const Icon(
+                              Icons.remove_red_eye_outlined,
+                              color: Colors.grey,
+                            ),
+                    ),
                     obscureText,
                   ),
                 ),
@@ -198,7 +199,7 @@ class _ResetState extends State<Reset> {
               child: GestureDetector(
                 onTap: () {
                   Get.to(
-                    const Bottom(),
+                    const HomePage(),
                   );
                 },
                 child: Custombutton.button(

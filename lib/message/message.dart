@@ -57,7 +57,7 @@ class _MessageState extends State<Message> {
                       context,
                       PageTransition(
                         type: PageTransitionType.fade,
-                        child: const Bottom(),
+                        child: const HomePage(),
                       ),
                     );
                   },

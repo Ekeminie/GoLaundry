@@ -1,101 +1,60 @@
+import 'package:anywash/core/services/storage-service.dart';
+import 'package:anywash/locator.dart';
+import 'package:anywash/routes/routes.dart';
 import 'package:anywash/spleshscreen.dart';
 import 'package:anywash/utils/colornotifire.dart';
+import 'package:anywash/utils/initializer.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:oktoast/oktoast.dart';
 import 'package:provider/provider.dart';
 
-void main() {
+import 'core/services/navigation_service.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+//load file with keys
+  await dotenv.load(fileName: ".env");
+
+  //setup dependency injector
+  dependenciesInjectorSetup();
+
+  // check if user is logged in or not
+  bool isLoggedIn = false;
+  StorageService storageService = getIt<StorageService>();
+  String _token = await storageService.readItem(key: "token") ?? '';
+  isLoggedIn = _token.isNotEmpty;
+
+  //initial api calls to be made to get data from API
+  await getIt<Initializer>().initialCalls();
+
   runApp(
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => ColorNotifire()),
       ],
-      child: const GetMaterialApp(
-        home: Spleshscreen(),
-        debugShowCheckedModeBanner: false,
-      ),
+      child: OKToast(
+          child: ScreenUtilInit(
+              designSize: const Size(390, 690),
+              minTextAdapt: true,
+              splitScreenMode: true,
+              builder: (
+                child,
+                _,
+              ) {
+                return GetMaterialApp(
+                  navigatorKey: getIt<NavigationService>().navigatorKey,
+                  onGenerateRoute: Routers.generateRoute,
+                  // initialRoute: getIt<UserService>().hasToken
+                  //     ? PageRoutes.homeOrderAccountPage
+                  //     : PageRoutes.loginNavigator,
+                  home: const SplashScreen(),
+                  debugShowCheckedModeBanner: false,
+                );
+              })),
     ),
   );
 }
-// import 'dart:collection';
-//
-// import 'package:anywash/home/home.dart';
-// import 'package:flutter/material.dart';
-//
-// class MyApp extends StatefulWidget {
-//   @override
-//   _MyAppState createState() => _MyAppState();
-// }
-//
-// class _MyAppState extends State<MyApp> {
-//   ListQueue<int> _navigationQueue = ListQueue();
-//   int index = 0;
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return WillPopScope(
-//
-//       onWillPop: () async {
-//
-//         if (_navigationQueue.isEmpty) return true;
-//
-//         setState(() {
-//           index = _navigationQueue.last;
-//           _navigationQueue.removeLast();
-//         });
-//         return false;
-//       },
-//
-//       child: Scaffold(
-//         body: (getBody(index)),
-//         bottomNavigationBar: BottomNavigationBar(
-//           backgroundColor: Colors.white,
-//           selectedItemColor: const Color(0xFFf5851f),
-//           unselectedItemColor: Colors.grey,
-//           type: BottomNavigationBarType.fixed,
-//
-//           currentIndex: index,
-//
-//
-//           onTap: (value) {
-//             _navigationQueue.addLast(index);
-//             setState(() => index = value);
-//
-//           },
-//
-//           items: const [
-//             BottomNavigationBarItem(
-//               icon: Icon(Icons.restaurant),
-//             ),
-//             BottomNavigationBarItem(
-//               icon: Icon(Icons.call),
-//             ),
-//             BottomNavigationBarItem(
-//               icon: Icon(Icons.notifications),
-//             ),
-//             BottomNavigationBarItem(
-//               icon: Icon(Icons.shopping_cart),
-//             ),
-//           ],
-//         ),
-//       ),
-//     );
-//   }
-//
-//   Widget scrop(){
-//     return
-//   }
-//
-//   Widget getBody(int index) {
-//      switch (index) {
-//       case 0:
-//         return Home(); // Create this function, it should return your first page as a widget
-//       case 1:
-//         return Home(); // Create this function, it should return your second page as a widget
-//       case 2:
-//         return Home(); // Create this function, it should return your third page as a widget
-//       case 3:
-//         return Home(); // Create this function, it should return your fourth page as a widget
-//     }
-//   }
-// }

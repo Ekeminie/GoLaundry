@@ -1,3 +1,4 @@
+import 'package:anywash/routes/routes.dart';
 import 'package:anywash/utils/media.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -240,10 +241,15 @@ class _OnbondingState extends State<Onbonding> {
                                 ),
                               ),
                               GestureDetector(
-                                onTap: (){
-                                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context){
-                                    return const Login();
-                                  },),);
+                                onTap: () {
+                                  Navigator.pushReplacement(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) {
+                                        return const Login();
+                                      },
+                                    ),
+                                  );
                                 },
                                 child: Container(
                                   decoration: BoxDecoration(
@@ -293,10 +299,9 @@ class _OnbondingState extends State<Onbonding> {
                                 ),
                               ),
                               GestureDetector(
-                                onTap: (){
-                                  Navigator.push(context, MaterialPageRoute(builder: (context){
-                                    return const Login();
-                                  },),);
+                                onTap: () {
+                                  Navigator.pushNamed(
+                                      context, PageRoutes.loginRoute);
                                 },
                                 child: Container(
                                   decoration: BoxDecoration(

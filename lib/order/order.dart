@@ -11,7 +11,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../utils/media.dart';
 import '../utils/string.dart';
 
-class Order extends StatefulWidget { 
+class Order extends StatefulWidget {
   const Order({Key? key}) : super(key: key);
 
   @override
@@ -59,7 +59,7 @@ class _OrderState extends State<Order> {
                       context,
                       PageTransition(
                         type: PageTransitionType.fade,
-                        child: const Bottom(),
+                        child: const HomePage(),
                       ),
                     );
                   },
